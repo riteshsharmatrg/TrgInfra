@@ -1,8 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowDown, FileText, Users, Phone, Mail } from "lucide-react";
+import { ArrowDown, FileText, Users, Phone, Mail, Home } from "lucide-react";
 
 const Index = () => {
   const services = [
