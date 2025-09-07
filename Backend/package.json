@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build:frontend": "cd .. && npm install && npm run build && cp -r dist ./Backend/"
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
