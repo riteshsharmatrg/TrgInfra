@@ -70,7 +70,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-600 mt-8 pt-8 text-center">
           <p className="font-open-sans text-gray-300">
-            © 2024 TRG Infra Planning LLP. All rights reserved.
+            © 2024 TRG Infra Planning LLP.
           </p>
         </div>
       </div>

@@ -6,6 +6,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import axios from "axios";
+import { BASE_URL } from '../utils/config.js'
 
 const Contact = () => {
   const { toast } = useToast();
@@ -16,14 +18,27 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+
+    try {
+      await axios.post(`${BASE_URL}contactUs/contact`, formData);
+
+      toast({
+        title: "Message Sent!",
+        description:
+          "Thank you for contacting us. We'll get back to you within 24 hours.",
+      });
+
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Failed to send message",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -35,8 +50,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section 
+      <section
         className="relative bg-gradient-to-r from-trg-blue/90 to-trg-blue/70 py-20"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?auto=format&fit=crop&w=1920&q=80')`,
@@ -45,7 +59,7 @@ const Contact = () => {
           backgroundBlendMode: 'overlay'
         }}
       >
-        <div className="container mx-auto px-4 text-center text-white">
+        <div className="container mx-auto px-4 text-center text-white backdrop-blur-sm bg-black/40">
           <h1 className="font-montserrat font-bold text-4xl md:text-5xl mb-6">
             Contact Us
           </h1>
@@ -86,7 +100,7 @@ const Contact = () => {
                         placeholder="Enter your full name"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="email" className="block font-open-sans font-medium text-trg-charcoal mb-2">
                         Email Address *
@@ -102,7 +116,7 @@ const Contact = () => {
                         placeholder="Enter your email address"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="phone" className="block font-open-sans font-medium text-trg-charcoal mb-2">
                         Phone Number *
@@ -118,7 +132,7 @@ const Contact = () => {
                         placeholder="Enter your phone number"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="message" className="block font-open-sans font-medium text-trg-charcoal mb-2">
                         Message *
@@ -133,9 +147,9 @@ const Contact = () => {
                         placeholder="Tell us about your project and regulatory requirements"
                       />
                     </div>
-                    
-                    <Button 
-                      type="submit" 
+
+                    <Button
+                      type="submit"
                       className="w-full bg-trg-orange hover:bg-trg-orange/90 text-white font-montserrat font-semibold py-3"
                     >
                       Send Message

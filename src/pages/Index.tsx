@@ -49,13 +49,13 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section 
-        className="relative bg-gradient-to-r from-trg-blue/90 to-trg-blue/70 min-h-[600px] flex items-center"
+      <section
+        className="relative bg-gradient-to-r from-trg-blue/90 to-trg-blue/70 min-h-[600px] flex items-center bg-fixed"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=1920&q=80')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundBlendMode: 'overlay'
+          backgroundBlendMode: 'overlay',
         }}
       >
         <div className="container mx-auto px-4 text-center text-white">
@@ -69,12 +69,19 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/consultation">
-              <Button size="lg" className="bg-trg-orange hover:bg-trg-orange/90 text-white font-montserrat font-semibold px-8 py-4 text-lg">
+              <Button
+                size="lg"
+                className="bg-trg-orange hover:bg-trg-orange/90 text-white font-montserrat font-semibold px-8 py-4 text-lg"
+              >
                 Get Consultation
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-trg-blue font-montserrat font-semibold px-8 py-4 text-lg">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white text-trg-blue hover:bg-white hover:text-trg-blue font-montserrat font-semibold px-8 py-4 text-lg"
+              >
                 Contact Us
               </Button>
             </Link>
@@ -85,6 +92,7 @@ const Index = () => {
         </div>
       </section>
 
+
       {/* About Snapshot */}
       <section className="py-16 bg-trg-grey">
         <div className="container mx-auto px-4 text-center">
@@ -92,8 +100,8 @@ const Index = () => {
             About TRG Infra Planning LLP
           </h2>
           <p className="font-open-sans text-lg text-trg-charcoal max-w-4xl mx-auto leading-relaxed">
-            TRG Infra Planning LLP is a leading consultation firm specializing in land development and regulatory approvals across Haryana. 
-            With our deep understanding of local regulations and strong relationships with government bodies, we streamline the complex 
+            TRG Infra Planning LLP is a leading consultation firm specializing in land development and regulatory approvals across Haryana.
+            With our deep understanding of local regulations and strong relationships with government bodies, we streamline the complex
             approval process for developers, ensuring timely and compliant project execution.
           </p>
         </div>

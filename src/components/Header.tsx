@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
+import Logo from "../Assets/TRGLogo.jpg"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,14 +24,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-montserrat font-bold text-trg-blue">
-              TRG
-            </div>
-            <div className="text-sm font-open-sans text-trg-charcoal">
-              <div>Infra Planning</div>
-              <div className="text-xs text-trg-orange">LLP</div>
-            </div>
+          <Link to="/" className="flex items-center">
+            <img
+              src={Logo}
+              alt="TRG Logo"
+              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -39,11 +38,10 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`font-open-sans font-medium transition-colors duration-200 ${
-                  isActive(item.path)
-                    ? "text-trg-blue border-b-2 border-trg-orange"
-                    : "text-trg-charcoal hover:text-trg-blue"
-                }`}
+                className={`font-open-sans font-medium transition-colors duration-200 ${isActive(item.path)
+                  ? "text-trg-blue border-b-2 border-trg-orange"
+                  : "text-trg-charcoal hover:text-trg-blue"
+                  }`}
               >
                 {item.name}
               </Link>
@@ -72,6 +70,7 @@ const Header = () => {
           </button>
         </div>
 
+
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t">
@@ -80,11 +79,10 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`font-open-sans font-medium transition-colors duration-200 ${
-                    isActive(item.path)
-                      ? "text-trg-blue"
-                      : "text-trg-charcoal hover:text-trg-blue"
-                  }`}
+                  className={`font-open-sans font-medium transition-colors duration-200 ${isActive(item.path)
+                    ? "text-trg-blue"
+                    : "text-trg-charcoal hover:text-trg-blue"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}

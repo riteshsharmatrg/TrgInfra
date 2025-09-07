@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingCTA from "./components/FloatingCTA";
+import AdminPanel from "./pages/AdminPanel";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,9 @@ const App = () => (
               <Route path="/process" element={<Process />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/consultation" element={<Consultation />} />
+              <Route path="/admin" element={<AdminPanel />} />
+
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

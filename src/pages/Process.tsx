@@ -68,7 +68,7 @@ const Process = () => {
           backgroundBlendMode: 'overlay'
         }}
       >
-        <div className="container mx-auto px-4 text-center text-white">
+        <div className="container mx-auto px-4 text-center text-white backdrop-blur-sm bg-black/40">
           <h1 className="font-montserrat font-bold text-4xl md:text-5xl mb-6">
             Our Process
           </h1>

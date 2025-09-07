@@ -7,6 +7,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Clock, Users, Award } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import axios from "axios";
+import { BASE_URL } from "../utils/config.js";
 
 const Consultation = () => {
   const { toast } = useToast();
@@ -21,22 +23,37 @@ const Consultation = () => {
     description: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Consultation Request Submitted!",
-      description: "Our experts will contact you within 2 hours to discuss your project.",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      projectType: "",
-      location: "",
-      timeline: "",
-      description: ""
-    });
+
+    try {
+      await axios.post(`${BASE_URL}requests/createRequest`, formData);
+
+      toast({
+        title: "Consultation Request Submitted!",
+        description:
+          "Our experts will contact you within 2 hours to discuss your project.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        projectType: "",
+        location: "",
+        timeline: "",
+        description: "",
+      });
+    } catch (error) {
+      console.error(error);
+
+      toast({
+        title: "Failed to submit request",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -79,15 +96,16 @@ const Consultation = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section 
+      <section
         className="relative bg-gradient-to-r from-trg-blue/90 to-trg-blue/70 py-20"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1527576539890-dfa815648363?auto=format&fit=crop&w=1920&q=80')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1920&q=80')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundBlendMode: 'overlay'
         }}
       >
+
         <div className="container mx-auto px-4 text-center text-white">
           <h1 className="font-montserrat font-bold text-4xl md:text-5xl mb-6">
             Request a Consultation
@@ -129,10 +147,10 @@ const Consultation = () => {
                           placeholder="Enter your full name"
                         />
                       </div>
-                      
+
                       <div>
                         <label htmlFor="email" className="block font-open-sans font-medium text-trg-charcoal mb-2">
-                          Email Address *
+                          Email Address 
                         </label>
                         <Input
                           id="email"
@@ -140,7 +158,6 @@ const Consultation = () => {
                           type="email"
                           value={formData.email}
                           onChange={handleChange}
-                          required
                           placeholder="Enter your email"
                         />
                       </div>
@@ -161,7 +178,7 @@ const Consultation = () => {
                           placeholder="Enter your phone number"
                         />
                       </div>
-                      
+
                       <div>
                         <label htmlFor="company" className="block font-open-sans font-medium text-trg-charcoal mb-2">
                           Company Name
@@ -227,24 +244,23 @@ const Consultation = () => {
                         </SelectContent>
                       </Select>
                     </div>
-                    
+
                     <div>
                       <label htmlFor="description" className="block font-open-sans font-medium text-trg-charcoal mb-2">
-                        Project Description *
+                        Project Description 
                       </label>
                       <Textarea
                         id="description"
                         name="description"
                         value={formData.description}
                         onChange={handleChange}
-                        required
                         className="min-h-[120px]"
                         placeholder="Describe your project and specific regulatory requirements"
                       />
                     </div>
-                    
-                    <Button 
-                      type="submit" 
+
+                    <Button
+                      type="submit"
                       className="w-full bg-trg-orange hover:bg-trg-orange/90 text-white font-montserrat font-semibold py-3"
                     >
                       Request Consultation
