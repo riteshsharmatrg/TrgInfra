@@ -16,7 +16,8 @@ const Services = () => {
         "CLU Extensions & Modifications", 
         "Layout Plan Approvals",
         "Zoning Clearances",
-        "Development Plan Submissions"
+        "Development Plan Submissions",
+        "License Services"
       ]
     },
     {
@@ -29,7 +30,8 @@ const Services = () => {
         "Completion Certificates",
         "Occupancy Certificates", 
         "Property Tax Assessments",
-        "Municipal NOCs"
+        "Municipal NOCs",
+        "CLU"
       ]
     },
     {

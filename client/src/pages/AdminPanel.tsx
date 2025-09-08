@@ -25,7 +25,10 @@ interface Contact {
   updatedAt: string;
 }
 
-const BASE_URL = "http://localhost:5000/";
+const BASE_URL = "https://trg-1e4w.onrender.com/";
+
+console.log(BASE_URL);
+
 
 const AdminPanel: React.FC = () => {
   const [requests, setRequests] = useState<Request[]>([]);

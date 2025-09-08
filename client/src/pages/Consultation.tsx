@@ -8,7 +8,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Clock, Users, Award } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
-import { BASE_URL } from "../utils/config.js";
+// import { BASE_URL } from "../utils/config.js";
+
+const BASE_URL = 'https://trg-1e4w.onrender.com/'
+
 
 const Consultation = () => {
   const { toast } = useToast();
@@ -27,6 +30,8 @@ const Consultation = () => {
     e.preventDefault();
 
     try {
+      console.log(BASE_URL);
+
       await axios.post(`${BASE_URL}api/v1/requests/createRequest`, formData);
 
       toast({
@@ -150,7 +155,7 @@ const Consultation = () => {
 
                       <div>
                         <label htmlFor="email" className="block font-open-sans font-medium text-trg-charcoal mb-2">
-                          Email Address 
+                          Email Address
                         </label>
                         <Input
                           id="email"
@@ -247,7 +252,7 @@ const Consultation = () => {
 
                     <div>
                       <label htmlFor="description" className="block font-open-sans font-medium text-trg-charcoal mb-2">
-                        Project Description 
+                        Project Description
                       </label>
                       <Textarea
                         id="description"
