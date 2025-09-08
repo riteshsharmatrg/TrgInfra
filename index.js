@@ -15,7 +15,7 @@ const app = express();
 
 // CORS setup
 app.use(cors({
-    origin: "*", // you can restrict it to your frontend URL in production
+    origin: "*", 
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
