@@ -13,20 +13,17 @@ const __dirname = path.dirname(__filename);
 dotenv.config();
 const app = express();
 
-// CORS setup
 app.use(cors({
-    origin: "*", 
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use(express.json());
 
-// API routes
 app.use("/api/v1/requests", requestRoutes);
 app.use("/api/v1/contactUs", contactUsRoutes);
 
-// Serve frontend in production
 const buildPath = path.join(__dirname, "client", "dist");
 app.use(express.static(buildPath));
 
@@ -34,7 +31,6 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(buildPath, "index.html"));
 });
 
-// Start server & connect to MongoDB
 const PORT = process.env.PORT || 5000;
 
 mongoose
