@@ -78,7 +78,7 @@ const AdminPanel: React.FC = () => {
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Project Type</th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Timeline</th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Location</th>
-              <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Description</th>"
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Description</th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Created At</th>
             </tr>
           </thead>
