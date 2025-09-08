@@ -27,7 +27,7 @@ const Consultation = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`${BASE_URL}requests/createRequest`, formData);
+      await axios.post(`${BASE_URL}api/v1/requests/createRequest`, formData);
 
       toast({
         title: "Consultation Request Submitted!",
