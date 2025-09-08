@@ -44,10 +44,7 @@ const AdminPanel: React.FC = () => {
           axios.get(`${BASE_URL}/api/v1/contactUs/getAllContactUs`),
         ]);
 
-        console.log("Requests response:", requestRes.data);
-        console.log("Contacts response:", contactRes.data);
-
-        // Ensure arrays
+        
         setRequests(Array.isArray(requestRes.data) ? requestRes.data : []);
         setContacts(Array.isArray(contactRes.data) ? contactRes.data : []);
       } catch (err: any) {
@@ -81,6 +78,7 @@ const AdminPanel: React.FC = () => {
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Project Type</th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Timeline</th>
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Location</th>
+              <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Description</th>"
               <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase">Created At</th>
             </tr>
           </thead>
@@ -94,6 +92,8 @@ const AdminPanel: React.FC = () => {
                 <td className="px-6 py-4 whitespace-nowrap">{req.projectType}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{req.timeline}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{req.location}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{req.description}</td>
+
                 <td className="px-6 py-4 whitespace-nowrap">{new Date(req.createdAt).toLocaleString()}</td>
               </tr>
             ))}
