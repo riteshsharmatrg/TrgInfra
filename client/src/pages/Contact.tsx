@@ -7,9 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
-// import { BASE_URL } from '../utils/config.js'
 
-const BASE_URL = 'https://trg-1e4w.onrender.com/'
+const BASE_URL = 'https://trg-4k80.onrender.com'
 
 
 const Contact = () => {

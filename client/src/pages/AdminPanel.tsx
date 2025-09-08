@@ -25,7 +25,7 @@ interface Contact {
   updatedAt: string;
 }
 
-const BASE_URL = "https://trg-1e4w.onrender.com/";
+const BASE_URL = "https://trg-4k80.onrender.com";
 
 console.log(BASE_URL);
 
