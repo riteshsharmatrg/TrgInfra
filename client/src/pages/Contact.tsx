@@ -24,7 +24,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`${BASE_URL}api/v1/contactUs/contact`, formData);
+      await axios.post(`${BASE_URL}/api/v1/contactUs/contact`, formData);
 
       toast({
         title: "Message Sent!",

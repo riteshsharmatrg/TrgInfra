@@ -31,7 +31,7 @@ const Consultation = () => {
     try {
       console.log(BASE_URL);
 
-      await axios.post(`${BASE_URL}api/v1/requests/createRequest`, formData);
+      await axios.post(`${BASE_URL}/api/v1/requests/createRequest`, formData);
 
       toast({
         title: "Consultation Request Submitted!",

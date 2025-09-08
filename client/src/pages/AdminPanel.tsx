@@ -40,8 +40,8 @@ const AdminPanel: React.FC = () => {
     const fetchData = async () => {
       try {
         const [requestRes, contactRes] = await Promise.all([
-          axios.get(`${BASE_URL}api/v1/requests/getAllRequest`),
-          axios.get(`${BASE_URL}api/v1/contactUs/getAllContactUs`),
+          axios.get(`${BASE_URL}/api/v1/requests/getAllRequest`),
+          axios.get(`${BASE_URL}/api/v1/contactUs/getAllContactUs`),
         ]);
 
         console.log("Requests response:", requestRes.data);
