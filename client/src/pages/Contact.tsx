@@ -8,7 +8,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
 
-const BASE_URL = 'https://trg-4k80.onrender.com'
+const BASE_URL = 'https://trginfra.onrender.com'
 
 
 const Contact = () => {
