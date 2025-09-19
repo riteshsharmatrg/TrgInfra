@@ -1,10 +1,8 @@
-import express from "express";
-import { createRequest, getAllRequests } from "../Controllers/requestController.js";
+const express = require("express");
+const { sendGeneralEmail } = require("../Controllers/requestController");
 
 const router = express.Router();
 
-router.post("/createRequest", createRequest);
+router.post("/createRequest", sendGeneralEmail);
 
-router.get("/getAllRequest", getAllRequests);
-
-export default router;
+module.exports = router;

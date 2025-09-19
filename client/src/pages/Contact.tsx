@@ -8,7 +8,9 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
 
-const BASE_URL = 'https://trginfra.onrender.com'
+// const BASE_URL = 'https://trginfra.onrender.com'
+const BASE_URL = 'http://localhost:5000'
+
 
 
 const Contact = () => {
@@ -17,7 +19,8 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
+    
   });
 
   const handleSubmit = async (e: React.FormEvent) => {

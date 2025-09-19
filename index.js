@@ -1,20 +1,15 @@
-import express from "express";
-import dotenv from "dotenv";
-import mongoose from "mongoose";
-import cors from "cors";
-import requestRoutes from "./Routes/requestRoute.js";
-import contactUsRoutes from "./Routes/contactUsRoute.js";
-import path from "path";
-import { fileURLToPath } from "url";
+const express = require("express");
+const cors = require("cors");
+const requestRoutes = require("./Routes/requestRoute");
+const contactUsRoutes = require("./Routes/contactUsRoute");
+const path = require("path");
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+require("dotenv").config();
 
-dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://trg-4k80.onrender.com/"],
+    origin: ["http://localhost:5173", "https://trginfra.onrender.com/", "*"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
@@ -33,11 +28,4 @@ app.get("*", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-
-mongoose
-    .connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log("✅ MongoDB Connected");
-        app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-    })
-    .catch((err) => console.error("❌ MongoDB Connection Error:", err));
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
