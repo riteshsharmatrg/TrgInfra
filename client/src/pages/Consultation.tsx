@@ -9,8 +9,8 @@ import { CheckCircle, Clock, Users, Award } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
 
-// const BASE_URL = 'https://trginfra.onrender.com'
-const BASE_URL = 'http://localhost:5000'
+const BASE_URL = 'https://trginfra.onrender.com'
+// const BASE_URL = 'http://localhost:5000'
 
 
 
